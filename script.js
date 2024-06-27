@@ -1,5 +1,3 @@
-import magnemite from './assets/magnemite/scene.gltf';
-
 window.onload = () => {
      let places = staticLoadPlaces();
      console.log("places" + places)
@@ -67,7 +65,7 @@ function renderPlaces(places) {
         let model = document.createElement('a-entity');
         console.log(`Latitude: ${lat}, longitude: ${lng}`);
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('gltf-model', magnemite);
+        model.setAttribute('gltf-model', './assets/magnemite/scene.gltf');
         model.setAttribute('rotation', '0 180 0');
         model.setAttribute('animation-mixer', '');
         model.setAttribute('scale', '0.5 0.5 0.5');
