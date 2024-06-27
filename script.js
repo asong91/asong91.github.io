@@ -52,8 +52,9 @@ function staticLoadPlaces() {
 
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
-    let coords = navigator.geolocation.getCurrentPosition((pos) => {
-      return {
+    let coords = {};
+    navigator.geolocation.getCurrentPosition((pos) => {
+      coords =  {
         lat: pos.coords.latitude,
         long: pos.coords.longitude
       }
