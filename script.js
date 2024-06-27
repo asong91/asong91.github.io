@@ -1,7 +1,7 @@
 import magnemite from './assets/magnemite/scene.gltf';
 
 window.onload = () => {
-     let places = dynamicLoadPlaces();
+     let places = staticLoadPlaces();
      console.log("places" + places)
      renderPlaces(places);
 };
@@ -54,12 +54,18 @@ function staticLoadPlaces() {
 
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
-
+    let coords = navigator.geolocation.getCurrentPosition((pos) => {
+      return {
+        lat: position.coords.latitude,
+        long: position.coords.longitude
+      }
+    })
     places.forEach((place) => {
-        let latitude = place.lat;
-        let longitude = place.lng;
+        let latitude = coords.lat;
+        let longitude = coords.long;
 
         let model = document.createElement('a-entity');
+        console.log(`Latitude: ${lat}, longitude: ${lng}`);
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('gltf-model', magnemite);
         model.setAttribute('rotation', '0 180 0');
