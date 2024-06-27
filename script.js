@@ -61,8 +61,8 @@ function renderPlaces(places) {
       }
     })
     places.forEach((place) => {
-        let latitude = coords.lat;
-        let longitude = coords.long;
+        let latitude = coords.lat -0.00001;
+        let longitude = coords.long -0.00001;
 
         let model = document.createElement('a-entity');
         console.log(`Latitude: ${lat}, longitude: ${lng}`);
