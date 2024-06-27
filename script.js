@@ -58,12 +58,13 @@ function renderPlaces(places) {
         long: position.coords.longitude
       }
     })
+
+    console.log(`Latitude: ${coords.lat}, longitude: ${coords.long}`);
     places.forEach((place) => {
-        let latitude = coords.lat -0.00001;
-        let longitude = coords.long -0.00001;
+        let latitude = coords.lat + 0.0001;
+        let longitude = coords.long + 0.0001;
 
         let model = document.createElement('a-entity');
-        console.log(`Latitude: ${lat}, longitude: ${lng}`);
         model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         model.setAttribute('gltf-model', './assets/magnemite/scene.gltf');
         model.setAttribute('rotation', '0 180 0');
